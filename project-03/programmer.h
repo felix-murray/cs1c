@@ -41,7 +41,7 @@ class programmer : public employee
                    bool initKnowsJava);
 
         /* METHODS */
-        void printProgrammer();
+        void print();
 
     private:
         int departmentNumber;

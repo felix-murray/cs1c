@@ -35,7 +35,7 @@ class employee
                  int initSalary);
 
         /* METHODS */
-        void printEmployee();
+        void print();
 
     private:
         std::string name;

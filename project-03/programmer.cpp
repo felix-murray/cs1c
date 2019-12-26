@@ -92,21 +92,23 @@ programmer::programmer(std::string initName,
 }
 
 /* METHODS */
-void programmer::printProgrammer()
+void programmer::print()
 {
-    employee::printEmployee();
+    employee::print();
     std::cout << "Department Number: " << getDepartmentNumber() << std::endl;
     std::cout << "Supervisor: " << getSupervisor() << std::endl;
-    std::cout << "Salary Increase Percentage: " << getSalaryIncreasePercentage() << std::endl;
+    std::cout << "Salary Increase Percentage: " << getSalaryIncreasePercentage()  << "%" << std::endl;
     std::cout << "Languages Known: " << std::endl;
 
     if (getKnowsCPP() == true) 
     {
-        std::cout << "C++" << std::endl;
+        std::cout << "C++";
     } 
 
     if (getKnowsJava() == true) 
     {
-        std::cout << "Java" << std::endl;
+        std::cout << ", Java";
     } 
+
+    std::cout << std::endl;
 }

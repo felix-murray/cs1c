@@ -114,7 +114,7 @@ employee::employee(std::string initName,
 
 /* METHODS */
 
-void employee::printEmployee()
+void employee::print()
 {
     std::cout << "~Employee " << getName() << "~" << std::endl;
     std::cout << "ID: " << getID() << std::endl;
@@ -122,6 +122,6 @@ void employee::printEmployee()
     std::cout << "Age: " << getAge() << std::endl;
     std::cout << "Gender: " << getGender() << std::endl;
     std::cout << "Job Title: " << getJobTitle() << std::endl;
-    std::cout << "Salary: " << getSalary() << std::endl;
+    std::cout << "Salary: $" << getSalary() << std::endl;
     //std::cout << "Hire Date: " << std::endl;
 }
