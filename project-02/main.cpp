@@ -3,7 +3,7 @@
 int main()
 {
     system("clear");
-    card cards[52];   
+    card cards[14];   
 
     card::makeDeck(cards);
 
