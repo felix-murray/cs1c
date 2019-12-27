@@ -28,18 +28,8 @@ enum Rank
     QUEEN
 };
 
-Rank& operator++(Rank& orig)
-{
-  orig = static_cast<Rank>(orig + 1); // static_cast required because enum + int -> int
-  return orig;
-}
-
-Rank operator++(Rank& orig, int)
-{
-  Rank rVal = orig;
-  ++orig;
-  return rVal;
-}
+Rank& operator++(Rank& orig);
+Rank operator++(Rank& orig, int);
 
 class card 
 {
