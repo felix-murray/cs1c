@@ -1,13 +1,14 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <string>
+#include <stdlib.h>
 #include "functions.h"
 
 /*
 a. Write a program that uses a random number generator to
 generate a three digit integer that allows the user to perform
 the following operations:
-1. Sum the digits
-2. Triple the number
 3. Reverse the digits
 b. Use an enum, typedef, and string variable
 */
@@ -21,6 +22,27 @@ void pause()
     // on unix systems, read one character and then continue
     system("read -n 1 -s -p \"\t\t\t\t        Press any key to continue...\"");
 #endif
+}
+
+int sumDigit(int num)
+{
+    return num / 100 + (num / 10) % 10 + num % 10;
+}
+
+int tripleDigit(int num)
+{
+    return num * 3;
+}
+
+int reverseDigit(int num)
+{
+    int new_num = 0;
+    while(num > 0)
+    {
+            new_num = new_num*10 + (num % 10);
+            num = num/10;
+    }
+    return new_num;
 }
 
 void populateArray(int list[], const int LENGTH)
@@ -120,6 +142,8 @@ void menu(int list[], const int LENGTH)
     char choice;
     bool exit;
     bool first = true;
+    int temp;
+    char flag;
 
     populateArray(list, LENGTH);
 
@@ -147,6 +171,19 @@ void menu(int list[], const int LENGTH)
                   << std::endl
                   << "\t\t\t\t        7. Quit "
                   << std::endl;
+        switch (flag)
+        {
+            case '1':
+                std::cout << "\n\t\t\t\t        Digit Sum is: " << temp << "\n\n";
+                break;
+            case '2':
+                std::cout << "\n\t\t\t\t        Number Tripled is: " << temp << "\n\n";
+                break;
+            case '3':
+                std::cout << "\n\t\t\t\t        Number Reversed is: " << temp << "\n\n";
+                break;
+        }
+
         std::cout << "\t\t\t\t        Enter Selection (0-7): ";
         std::cin >> choice;
 
@@ -156,10 +193,16 @@ void menu(int list[], const int LENGTH)
             numToUse = selectNum(list, LENGTH);
             break;
         case '1':
+            temp = sumDigit(numToUse);
+            flag = '1';
             break;
         case '2':
+            temp = tripleDigit(numToUse);
+            flag = '2';
             break;
         case '3':
+            temp = reverseDigit(numToUse);
+            flag = '3';
             break;
         case '4':
             selectionSort(list, LENGTH);
