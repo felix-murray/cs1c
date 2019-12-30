@@ -7,9 +7,6 @@ class date
 {
     public:
         void setDate(int month, int day, int year);
-        int getDay() const;
-        int getMonth() const;
-        int getYear() const;
         void printDate() const;
         date();
         date(int initMonth, int initDay, int initYear);

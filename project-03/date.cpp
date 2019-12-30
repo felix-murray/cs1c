@@ -8,21 +8,6 @@
         day = initDay;
         year = initYear;
     }
-
-    int date::getDay() const
-    {
-        return day;
-    }
-
-    int date::getMonth() const
-    {
-        return month;
-    }
-
-    int date::getYear() const
-    {
-        return year;
-    }
     
     date::date()
     {
