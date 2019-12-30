@@ -77,6 +77,32 @@ void employee::setSalary(int initSalary)
     salary = initSalary;
 }
 
+void employee::setHireDate(int initMonth, int initDay, int initYear)
+{
+    hireDate.setDate(initMonth, initDay, initYear);
+}
+
+void employee::setAll(std::string initName, 
+                      std::string initID,
+                      std::string initPhoneNumber, 
+                      int initAge,
+                      char initGender,
+                      std::string initJobTitle,
+                      int initSalary, 
+                      int initMonth, 
+                      int initDay, 
+                      int initYear)
+{
+    name = initName;
+    ID = initID;
+    phoneNumber = initPhoneNumber;
+    age = initAge;
+    gender = initGender;
+    jobTitle = initJobTitle;
+    salary = initSalary;
+    hireDate.setDate(initMonth, initDay, initYear);
+}
+
 /* CONSTRUCTORS */
 
 employee::employee()
@@ -88,10 +114,7 @@ employee::employee()
     gender = 'X';
     jobTitle = "DEFAULT-JOB-TITLE";
     salary = -1;
-    // hireDate.setDay("DEFAULT-DAY");
-    // hireDate.setMonth("DEFAULT-MONTH");
-    // hireDate.setYear("DEFAULT-YEAR");
-
+    hireDate.setDate(-1,-1,-1);
 }
 
 employee::employee(std::string initName, 
@@ -100,16 +123,12 @@ employee::employee(std::string initName,
                    int initAge,
                    char initGender,
                    std::string initJobTitle,
-                   int initSalary)
+                   int initSalary, 
+                   int initMonth, 
+                   int initDay, 
+                   int initYear)
 {
-    name = initName;
-    ID = initID;
-    phoneNumber = initPhoneNumber;
-    age = initAge;
-    gender = initGender;
-    jobTitle = initJobTitle;
-    salary = initSalary;
-    //hireDate = initHireDate;
+    setAll(initName, initID, initPhoneNumber, initAge, initGender, initJobTitle, initSalary, initMonth, initDay, initYear);
 }
 
 /* METHODS */
@@ -123,5 +142,7 @@ void employee::print()
     std::cout << "Gender: " << getGender() << std::endl;
     std::cout << "Job Title: " << getJobTitle() << std::endl;
     std::cout << "Salary: $" << getSalary() << std::endl;
-    //std::cout << "Hire Date: " << std::endl;
+    std::cout << "Hire Date: ";
+    hireDate.printDate();
+    std::cout << std::endl;
 }

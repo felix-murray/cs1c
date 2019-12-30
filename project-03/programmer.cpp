@@ -81,12 +81,15 @@ programmer::programmer(std::string initName,
                        char initGender,
                        std::string initJobTitle,
                        int initSalary,
+                       int month,
+                       int day,
+                       int year,
                        int initDepartmentNumber, 
                        std::string initSupervisor, 
                        double initSalaryIncreasePercentage,
                        bool initKnowsCPP,
                        bool initKnowsJava)
-            : employee(initName, initID, initPhoneNumber, initAge, initGender, initJobTitle, initSalary)
+            : employee(initName, initID, initPhoneNumber, initAge, initGender, initJobTitle, initSalary, month, day, year)
 {
     setAll(initDepartmentNumber, initSupervisor, initSalaryIncreasePercentage, initKnowsCPP, initKnowsJava);
 }
@@ -98,7 +101,7 @@ void programmer::print()
     std::cout << "Department Number: " << getDepartmentNumber() << std::endl;
     std::cout << "Supervisor: " << getSupervisor() << std::endl;
     std::cout << "Salary Increase Percentage: " << getSalaryIncreasePercentage()  << "%" << std::endl;
-    std::cout << "Languages Known: " << std::endl;
+    std::cout << "Languages Known: ";
 
     if (getKnowsCPP() == true) 
     {
@@ -109,6 +112,11 @@ void programmer::print()
     {
         std::cout << ", Java";
     } 
+
+    if (getKnowsJava() == false && getKnowsCPP() == false)
+    {
+        std::cout << "DEFAULT";
+    }
 
     std::cout << std::endl;
 }

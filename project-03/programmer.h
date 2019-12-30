@@ -28,17 +28,20 @@ class programmer : public employee
         /* CONSTRUCTORS */
         programmer();
         programmer(std::string initName, 
-                   std::string initID,
-                   std::string initPhoneNumber, 
-                   int initAge,
-                   char initGender,
-                   std::string initJobTitle,
-                   int initSalary,
-                   int initDepartmentNumber, 
-                   std::string initSupervisor, 
-                   double initSalaryIncreasePercentage,
-                   bool initKnowsCPP,
-                   bool initKnowsJava);
+                       std::string initID,
+                       std::string initPhoneNumber, 
+                       int initAge,
+                       char initGender,
+                       std::string initJobTitle,
+                       int initSalary,
+                       int month,
+                       int day,
+                       int year,
+                       int initDepartmentNumber, 
+                       std::string initSupervisor, 
+                       double initSalaryIncreasePercentage,
+                       bool initKnowsCPP,
+                       bool initKnowsJava);
 
         /* METHODS */
         void print();

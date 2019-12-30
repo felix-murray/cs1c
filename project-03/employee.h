@@ -2,6 +2,7 @@
 #define EMPLOYEE_H_
 
 #include <string>
+#include "date.h"
  
 class employee
 {
@@ -23,17 +24,31 @@ class employee
         void setGender(char initGender);
         void setJobTitle(std::string initJobTitle);
         void setSalary(int initSalary);
+        void setHireDate(int initMonth, int initDay, int initYear);
+        void setAll(std::string initName, 
+                    std::string initID,
+                    std::string initPhoneNumber, 
+                    int initAge,
+                    char initGender,
+                    std::string initJobTitle,
+                    int initSalary, 
+                    int initMonth, 
+                    int initDay, 
+                    int initYear);
 
         /* CONSTRUCTORS */
         employee();
         employee(std::string initName, 
-                 std::string initID,
-                 std::string initPhoneNumber, 
-                 int initAge,
-                 char initGender,
-                 std::string initJobTitle,
-                 int initSalary);
-
+                   std::string initID,
+                   std::string initPhoneNumber, 
+                   int initAge,
+                   char initGender,
+                   std::string initJobTitle,
+                   int initSalary, 
+                   int initMonth, 
+                   int initDay, 
+                   int initYear);
+    
         /* METHODS */
         void print();
 
@@ -45,7 +60,7 @@ class employee
         char gender;
         std::string jobTitle;
         int salary;
-        //date::date hireDate;
+        date hireDate;
 };
 
 #endif

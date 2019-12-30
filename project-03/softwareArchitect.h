@@ -25,16 +25,19 @@ class softwareArchitect : public employee
         /* CONSTRUCTORS */
         softwareArchitect();
         softwareArchitect(std::string initName, 
-                   std::string initID,
-                   std::string initPhoneNumber, 
-                   int initAge,
-                   char initGender,
-                   std::string initJobTitle,
-                   int initSalary,
-                   int initDepartmentNumber, 
-                   std::string initSupervisor, 
-                   double initSalaryIncreasePercentage,
-                   int initYearsExperience);
+                          std::string initID,
+                          std::string initPhoneNumber, 
+                          int initAge,
+                          char initGender,
+                          std::string initJobTitle,
+                          int initSalary,
+                          int month, 
+                          int day, 
+                          int year,
+                          int initDepartmentNumber, 
+                          std::string initSupervisor, 
+                          double initSalaryIncreasePercentage,
+                          int initYearsExperience);
 
         /* METHODS */
         void print();

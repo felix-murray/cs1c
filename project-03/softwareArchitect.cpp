@@ -69,11 +69,14 @@ softwareArchitect::softwareArchitect(std::string initName,
                        char initGender,
                        std::string initJobTitle,
                        int initSalary,
+                       int month, 
+                       int day, 
+                       int year,
                        int initDepartmentNumber, 
                        std::string initSupervisor, 
                        double initSalaryIncreasePercentage,
                        int initYearsExperience)
-            : employee(initName, initID, initPhoneNumber, initAge, initGender, initJobTitle, initSalary)
+            : employee(initName, initID, initPhoneNumber, initAge, initGender, initJobTitle, initSalary, month, day, year)
 {
     setAll(initDepartmentNumber, initSupervisor, initSalaryIncreasePercentage, initYearsExperience);
 }
