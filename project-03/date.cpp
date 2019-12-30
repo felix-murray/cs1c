@@ -2,46 +2,45 @@
 #include <iostream>
 #include <string>
 
-std::string date::getMonth()
-{
-    return month;
-}
+    void date::setDate(int initMonth, int initDay, int initYear)
+    {
+        month = initMonth;
+        day = initDay;
+        year = initYear;
+    }
 
-std::string date::getDay()
-{
-    return day;
-}
+    int date::getDay() const
+    {
+        return day;
+    }
 
-std::string date::getYear()
-{
-    return year;
-}
+    int date::getMonth() const
+    {
+        return month;
+    }
 
-void date::setMonth(std::string initMonth)
-{
-    month = initMonth;
-}
+    int date::getYear() const
+    {
+        return year;
+    }
+    
+    date::date()
+    {
+        month = -1;
+        day = -1;
+        year = -1;
+    }
 
-void date::setDay(std::string initDay)
-{
-    day = initDay;
-}
+    date::date(int initMonth, int initDay, int initYear)
+    {
+        month = initMonth;
+        day = initDay;
+        year = initYear;
+    }
+    
+    void date::printDate() const
+    {
+        std::cout << month << "/" << day << "/" << year;
+    }
 
-void date::setYear(std::string initYear)
-{
-    year = initYear;
-}
-
-date::date()
-{
-    setDay("DEFAULT-DAY");
-    setMonth("DEFAULT-MONTH");
-    setYear("DEFAULT-YEAR");
-}
-
-date::date(std::string initMonth, std::string initDay, std::string initYear)
-{
-    setDay(initDay);
-    setMonth(initMonth);
-    setYear(initYear);
-}
+  

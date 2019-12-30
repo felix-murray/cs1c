@@ -6,24 +6,17 @@
 class date 
 {
     public:
-        std::string getMonth();
-        std::string getDay();
-        std::string getYear();
-        
-        void setMonth(std::string);
-        void setDay(std::string);
-        void setYear(std::string);
-
+        void setDate(int month, int day, int year);
+        int getDay() const;
+        int getMonth() const;
+        int getYear() const;
+        void printDate() const;
         date();
-        date(std::string initMonth, std::string initDay, std::string initYear);
-
+        date(int initMonth, int initDay, int initYear);
     private:
-        std::string month;
-        std::string day;
-        std::string year;
+        int month;
+        int day;
+        int year;
 };
-
-
-
 
 #endif

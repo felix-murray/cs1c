@@ -26,8 +26,8 @@ int main()
     generic.setJobTitle("Comedian");
     std::cout << "Changing Salary..." << std::endl;
     generic.setSalary(1000000);
-    // std::cout << "Changing Hire Date" << std::endl;
-    // generic.setName("Jimmey");
+    std::cout << "Changing Hire Date" << std::endl;
+    generic.setHireDate(8, 31, 2014);
     std::cout << "\nOutputting Changes..." << "\n\n";
     generic.print();
 
@@ -60,8 +60,8 @@ int main()
     generic2.setKnowsCPP(true);
     std::cout << "Changing Java Knowledge..." << std::endl;
     generic2.setKnowsJava(false);
-    // std::cout << "Changing Hire Date" << std::endl;
-    // generic2.setName("Jimmey");
+    std::cout << "Changing Hire Date" << std::endl;
+    generic2.setHireDate(12, 24, 2011);
     std::cout << "\nOutputting Changes..." << "\n\n";
     generic2.print();
 
@@ -90,20 +90,20 @@ int main()
     generic3.setSupervisor("Big Boss");
     std::cout << "Changing Raise Percentage..." << std::endl;
     generic3.setSalaryIncreasePercentage(5);
-    std::cout << "Changing Years of Experince";
+    std::cout << "Changing Years of Experince" << std::endl;
     generic3.setYearsExperience(4);
-    // std::cout << "Changing Hire Date" << std::endl;
-    // generic2.setName("Jimmey");
+    std::cout << "Changing Hire Date" << std::endl;
+    generic3.setHireDate(12, 24, 2009);
     std::cout << "\nOutputting Changes..." << "\n\n";
     generic3.print();
 
 
     std::cout << "\nCreating Remaining Objects Using Constructors..." << "\n\n";
-    employee custom("Stephen Colbert", "12345", "310-555-5555", 51, 'M', "Comedian", 70123);
-    employee custom2("James Corden", "87654", "703-703-1234", 37, 'M', "Comedian", 900000);
-    employee custom3("Katie Courie", "77777", "203-555-6789", 58, 'F', "News Reporter", 500500);
-    programmer gates("Mary Coder", "65432", "310-555-5555", 28, 'F', "Programmer", 770123, 6543222, "Mary Leader", 7, true, true);
-    softwareArchitect gates2("Sally Designer", "87878", "310-555-8888", 38, 'F', "Architect", 870123, 654322, "Big Boss", 8, 11);
+    employee custom("Stephen Colbert", "12345", "310-555-5555", 51, 'M', "Comedian", 70123, 5, 8, 2015);
+    employee custom2("James Corden", "87654", "703-703-1234", 37, 'M', "Comedian", 900000, 12, 25, 2014);
+    employee custom3("Katie Courie", "77777", "203-555-6789", 58, 'F', "News Reporter", 500500, 3, 1, 2005);
+    programmer gates("Mary Coder", "65432", "310-555-5555", 28, 'F', "Programmer", 770123, 2, 8, 2010, 6543222, "Mary Leader", 7, true, true);
+    softwareArchitect gates2("Sally Designer", "87878", "310-555-8888", 38, 'F', "Architect", 870123, 2, 8, 2003, 654322, "Big Boss", 8, 11);
 
     custom.print();
     std::cout << "\n";
