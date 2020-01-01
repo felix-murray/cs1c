@@ -39,19 +39,23 @@ class employee
         /* CONSTRUCTORS */
         employee();
         employee(std::string initName, 
-                   std::string initID,
-                   std::string initPhoneNumber, 
-                   int initAge,
-                   char initGender,
-                   std::string initJobTitle,
-                   int initSalary, 
-                   int initMonth, 
-                   int initDay, 
-                   int initYear);
+                 std::string initID,
+                 std::string initPhoneNumber, 
+                 int initAge,
+                 char initGender,
+                 std::string initJobTitle,
+                 int initSalary, 
+                 int initMonth, 
+                 int initDay, 
+                 int initYear);
     
         /* METHODS */
         void print();
 
+        /* OPERATORS */
+        employee operator+(int val);                     //Unary (Addition)
+        friend employee& operator++(employee& orig);     //preincrement
+        friend employee operator++(employee& orig, int); //postincrement
     private:
         std::string name;
         std::string ID;

@@ -146,3 +146,23 @@ void employee::print()
     hireDate.printDate();
     std::cout << std::endl;
 }
+
+employee& operator++(employee& orig)
+{
+  orig.setAge(orig.getAge() + 1);
+  return orig;
+}
+
+employee operator++(employee& orig, int)
+{
+  employee rVal = orig;
+  ++orig;
+  return rVal;
+}
+
+employee employee::operator+(int value)
+{
+    this->setAge(this->getAge() + value);
+    std::cout << value << " years added to age of " << this->getName() << std::endl;
+    return *this;
+}
