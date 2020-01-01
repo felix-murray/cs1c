@@ -13,14 +13,14 @@ enum TimeZone
     EMPTY
 };
 
-
-class extendedTime : public time
+class ExtendedTime : public Time
 {
     public:
-        void setTime(int initHours, int initMinutes, int initSeconds);
+        void setTimeZone(TimeZone initTimeZone);
         void printTime() const;
-        extendedTime();
-        extendedTime(int initHours, int initMinutes, int initSeconds, TimeZone initTimeZone);
+        ExtendedTime();
+        ExtendedTime(int initHours, int initMinutes, int initSeconds, TimeZone initTimeZone);
+        friend std::ostream& operator<<(std::ostream& os, ExtendedTime const& obj);
     private:
         TimeZone time_zone;
 };

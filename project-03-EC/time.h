@@ -3,13 +3,13 @@
 
 #include <string>
 
-class time 
+class Time 
 {
     public:
         void setTime(int initHours, int initMinutes, int initSeconds);
         void printTime() const;
-        time();
-        time(int initHours, int initMinutes, int initSeconds);
+        Time();
+        Time(int initHours, int initMinutes, int initSeconds);
     private:
         int hours;
         int minutes;
