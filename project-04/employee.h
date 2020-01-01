@@ -53,9 +53,11 @@ class employee
         void print();
 
         /* OPERATORS */
-        employee operator+(int val);                     //Unary (Addition)
-        friend employee& operator++(employee& orig);     //preincrement
-        friend employee operator++(employee& orig, int); //postincrement
+        employee operator+(int val);                                            //Unary (Addition)
+        friend employee& operator++(employee& orig);                            //preincrement
+        friend employee operator++(employee& orig, int);                        //postincrement
+        friend std::ostream& operator<<(std::ostream& os, employee& obj);        //insertion stream
+        friend std::istream& operator>>(std::istream& is, employee& obj);
     private:
         std::string name;
         std::string ID;

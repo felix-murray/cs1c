@@ -166,3 +166,60 @@ employee employee::operator+(int value)
     std::cout << value << " years added to age of " << this->getName() << std::endl;
     return *this;
 }
+
+std::ostream& operator<<(std::ostream& os, employee& obj){
+    obj.print();
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, employee& obj)
+{
+    std::string tempString;
+    int tempInt;
+    char tempChar;
+    
+    system("clear");
+    std::cout << "\n\tInput Name: "; 
+    std::getline(std::cin, tempString);
+    obj.setName(tempString);
+
+    system("clear");
+    std::cout << "\n\tInput ID: ";
+    std::getline(std::cin, tempString);
+    obj.setID(tempString);
+
+    system("clear");
+    std::cout << "\n\tInput Phone Number: "; 
+    std::getline(std::cin, tempString);
+    obj.setPhoneNumber(tempString);
+
+    system("clear");
+    std::cout << "\n\tInput Age: ";
+    std::cin >> tempInt;
+    obj.setAge(tempInt);
+
+    system("clear");
+    std::cout << "\n\tInput Gender: ";
+    std::cin >> tempChar;
+    obj.setGender(tempChar);
+
+    system("clear");
+    std::cout << "\n\tInput Job Title: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    std::getline(std::cin, tempString);
+    obj.setJobTitle(tempString);
+    
+    system("clear");
+    std::cout << "\n\tInput Salary: ";
+    std::cin >> tempInt;
+    obj.setSalary(tempInt);
+
+    system("clear");
+    std::cout << "\n\tInput Hire Date: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    std::getline(std::cin, tempString);
+    obj.setHireDate(std::stoi(tempString.substr(0,1)), std::stoi(tempString.substr(2,2)), std::stoi(tempString.substr(5,4)));
+    system("clear");
+
+    return is;
+}
