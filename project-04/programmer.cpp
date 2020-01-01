@@ -120,3 +120,13 @@ void programmer::print()
 
     std::cout << std::endl;
 }
+
+bool comparePhoneNumber(employee &employeeObj, programmer &programmerObj)
+{
+    return (employeeObj.getPhoneNumber() == programmerObj.getPhoneNumber());
+}
+
+bool operator==(employee &employeeObj, programmer &programmerObj)
+{
+    return comparePhoneNumber(employeeObj, programmerObj);
+}

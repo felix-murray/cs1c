@@ -45,7 +45,10 @@ class programmer : public employee
 
         /* METHODS */
         void print();
+        friend bool comparePhoneNumber(employee &employeeObj, programmer &programmerObj);
 
+        /* OPERATORS */
+        friend bool operator==(employee &employeeObj, programmer &programmerObj);
     private:
         int departmentNumber;
         std::string supervisor;
