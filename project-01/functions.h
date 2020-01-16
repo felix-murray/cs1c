@@ -10,6 +10,7 @@ void readFile(int list[], const int LENGTH);
 void writeFile(int list[], const int LENGTH);
 void selectionSort(int list[], const int LENGTH);
 int selectNum(int list[], const int LENGTH);
+void makeVars();
 void menu(int list[], const int LENGTH);
 
 #endif

@@ -5,25 +5,6 @@
 #include <stdlib.h>
 #include "functions.h"
 
-/*
-a. Write a program that uses a random number generator to
-generate a three digit integer that allows the user to perform
-the following operations:
-3. Reverse the digits
-b. Use an enum, typedef, and string variable
-*/
-
-void pause()
-{
-#ifdef _WIN32
-    // pause on windows
-    system("pause");
-#else
-    // on unix systems, read one character and then continue
-    system("read -n 1 -s -p \"\t\t\t\t        Press any key to continue...\"");
-#endif
-}
-
 int sumDigit(int num)
 {
     return num / 100 + (num / 10) % 10 + num % 10;
@@ -37,10 +18,10 @@ int tripleDigit(int num)
 int reverseDigit(int num)
 {
     int new_num = 0;
-    while(num > 0)
+    while (num > 0)
     {
-            new_num = new_num*10 + (num % 10);
-            num = num/10;
+        new_num = new_num * 10 + (num % 10);
+        num = num / 10;
     }
     return new_num;
 }
@@ -136,6 +117,29 @@ int selectNum(int list[], const int LENGTH)
     return list[choice];
 }
 
+void makeVars()
+{
+    std::string str = "I am a string!";
+
+    enum COLOR
+    {
+        RED,
+        BLUE,
+        GREEN,
+        YELLOW
+    };
+    COLOR myColor = GREEN;
+
+    typedef int myNum;
+    myNum test;
+    test = 23;
+
+    system("clear");
+    std::cout << "String 'str' is: " << str << std::endl;
+    std::cout << "enum COLOR 'myColor' is: " << myColor << " which is equivalent to: RED" << std::endl;
+    std::cout << "typdef 'myNum' is: " << test << std::endl;
+}
+
 void menu(int list[], const int LENGTH)
 {
     int numToUse = -1;
@@ -169,22 +173,24 @@ void menu(int list[], const int LENGTH)
                   << std::endl
                   << "\t\t\t\t        6. Print List "
                   << std::endl
-                  << "\t\t\t\t        7. Quit "
+                  << "\t\t\t\t        7. Print enum, typedef, and string "
+                  << std::endl
+                  << "\t\t\t\t        8. Quit "
                   << std::endl;
         switch (flag)
         {
-            case '1':
-                std::cout << "\n\t\t\t\t        Digit Sum is: " << temp << "\n\n";
-                break;
-            case '2':
-                std::cout << "\n\t\t\t\t        Number Tripled is: " << temp << "\n\n";
-                break;
-            case '3':
-                std::cout << "\n\t\t\t\t        Number Reversed is: " << temp << "\n\n";
-                break;
+        case '1':
+            std::cout << "\n\t\t\t\t        Digit Sum is: " << temp << "\n\n";
+            break;
+        case '2':
+            std::cout << "\n\t\t\t\t        Number Tripled is: " << temp << "\n\n";
+            break;
+        case '3':
+            std::cout << "\n\t\t\t\t        Number Reversed is: " << temp << "\n\n";
+            break;
         }
 
-        std::cout << "\t\t\t\t        Enter Selection (0-7): ";
+        std::cout << "\t\t\t\t        Enter Selection (0-8): ";
         std::cin >> choice;
 
         switch (choice)
@@ -214,16 +220,20 @@ void menu(int list[], const int LENGTH)
         case '6':
             selectionSort(list, LENGTH);
             print(list, LENGTH);
-            pause();
+            system("read -n 1 -s -p \"\t\t\t\t        Press any key to continue...\"");
             break;
         case '7':
+            makeVars();
+            system("read -n 1 -s -p \"\t\t\t\t        Press any key to continue...\"");
+            break;
+        case '8':
             system("clear");
             exit = true;
             break;
         default:
             system("clear");
             std::cout << "\t\t\t\t        ERROR: Input must be an integer in range 1 - 6.";
-            pause();
+            system("read -n 1 -s -p \"\t\t\t\t        Press any key to continue...\"");
             continue;
         }
     }
