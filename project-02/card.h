@@ -6,11 +6,13 @@
 class card 
 {
     public:
+        /*--------  Accessor Functions  --------*/
         std::string getSuite();
         std::string getRank();
         int getSuiteVal();
         int getRankVal();
         
+        /*--------  Mutator Functions  --------*/
         void setSuite(std::string initSuite);
         void setRank(std::string initSuite);
         void setSuiteVal(int initSuiteVal);
@@ -24,6 +26,7 @@ class card
         int rankVal;
 };
 
+/*--------  Shuffle Functions  --------*/
 void makeDeck(card array[]);
 void printDeck(card array[]);
 void shuffleDeck(card array[]);

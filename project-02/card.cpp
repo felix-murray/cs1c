@@ -1,6 +1,7 @@
 #include <iostream>
 #include "card.h"
 
+/*--------  Accessor Functions  --------*/
 std::string card::getSuite()
 {
     return suite;
@@ -21,6 +22,7 @@ int card::getRankVal()
     return rankVal;
 }
 
+/*--------  Mutator Functions  --------*/
 void card::setSuite(std::string initSuite)
 {
     suite = initSuite;
@@ -35,6 +37,12 @@ void card::setSuiteVal(int initSuite)
 {
     suiteVal = initSuite;
 
+    /**
+     *
+     * Switch statement used to relate suite value (int)
+     * to suite (string).
+     *
+     */
     switch (initSuite)
     {
     case 1:
@@ -55,7 +63,13 @@ void card::setSuiteVal(int initSuite)
 void card::setRankVal(int initRank)
 {
     rankVal = initRank;
-
+    
+    /**
+     *
+     * Switch statement used to relate rank value (int)
+     * to rank (string).
+     *
+     */
     switch (initRank)
     {
     case 1:
@@ -92,30 +106,71 @@ void card::setRankVal(int initRank)
         setRank("JACK");
         break;
     case 12:
-        setRank("KING");
+        setRank("QUEEN");
         break;
     case 13:
-        setRank("QUEEN");
+        setRank("KING");
         break;
     }
 }
 
+
+/******************************************************************
+ *
+ * FUNCTION printCard
+ *_________________________________________________________________
+ * This function prints the object's rank and suite.       
+ *_________________________________________________________________
+ * PRE-CONDITIONS
+ * n/a
+ * 
+ * POST-CONDITIONS 
+ * This function prints the object's rank and suite.     
+ *
+ ******************************************************************/
 void card::printCard()
 {
     std::cout << getRank() << " of " << getSuite() << std::endl;
 }
 
-//Non-class Functions
 
-void printDeck(card array[])
+/*--------  Shuffle Functions  --------*/
+
+/******************************************************************
+ *
+ * FUNCTION printDeck
+ *_________________________________________________________________
+ * This function prints the entire deck of cards.       
+ *_________________________________________________________________
+ * PRE-CONDITIONS
+ * card arr[] : array of cards to print.
+ * 
+ * POST-CONDITIONS 
+ * This function prints the entire deck of cards.  
+ *
+ ******************************************************************/
+void printDeck(card arr[])
 {
     for (int i = 0; i < 52; i++)
     {
-        array[i].printCard();
+        arr[i].printCard();
     }
 }
 
-void makeDeck(card array[])
+/******************************************************************
+ *
+ * FUNCTION makeDeck
+ *_________________________________________________________________
+ * This function creates the entire deck of cards.       
+ *_________________________________________________________________
+ * PRE-CONDITIONS
+ * card arr[] : array of cards to use to create the full deck.
+ * 
+ * POST-CONDITIONS 
+ * This function creates the entire deck of cards. 
+ *
+ ******************************************************************/
+void makeDeck(card arr[])
 {
     int index;
     card temp;
@@ -126,42 +181,51 @@ void makeDeck(card array[])
         {
             temp.setRankVal(j);
             temp.setSuiteVal(i);
-            array[index] = temp;
+            arr[index] = temp;
             index++;
         }
     }
 
-    std::cout << "Deck Created: "
-              << "\n\n";
+    std::cout << "--------Deck Created--------" << std::endl;
 }
 
-void shuffleDeck(card cards[])
+/******************************************************************
+ *
+ * FUNCTION shuffleDeck
+ *_________________________________________________________________
+ * This function shuffles the entire deck of cards using a method
+ * known as a "perfect shuffle".       
+ *_________________________________________________________________
+ * PRE-CONDITIONS
+ * card arr[] : array of cards to use to create the full deck.
+ * 
+ * POST-CONDITIONS 
+ * This function perfect shuffles the entire deck of cards once.
+ *
+ ******************************************************************/
+void shuffleDeck(card arr[])
 {
-    card temp;
-    
-    int i = 0;
-    int j = 26;
-    for (int x = 0; x < 52; x++)
+    card temp[52];
+
+    for (int i = 0; i < 52; i++)
     {
-        temp.setRankVal(i);
-        temp.setSuiteVal(i);
+        temp[i].setRankVal(arr[i].getRankVal());
+        temp[i].setSuiteVal(arr[i].getSuiteVal());
+    }
+    
+    int j = 0;
+    for (int i = 0; i < 52; i = i + 2)
+    {
+        //First Half of Deck
+        arr[i].setRankVal(temp[j].getRankVal());
+        arr[i].setSuiteVal(temp[j].getSuiteVal());
 
-        cards[x] = temp;
-
-        temp.setRankVal(j);
-        temp.setSuiteVal(j);
-
-        cards[x + 1] = temp;
+        //Second Half of Deck
+        arr[i + 1].setRankVal(temp[j + 26].getRankVal());
+        arr[i + 1].setSuiteVal(temp[j + 26].getSuiteVal());
         
-
-        //shhhhh I didn't steal this
-        //cards[x + 1].setInfo(copyCards[j].getSuit(), copyCards[j].getRank());
-        //cards[x].setInfo(copyCards[i].getSuit(), copyCards[i].getRank());
-        
-        x++;
-        i++;
         j++;
     }
 
-    std::cout << "Deck Shuffled" << std::endl;
+    std::cout << "--------Deck Shuffled--------" << std::endl;
 }
