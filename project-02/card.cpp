@@ -1,306 +1,167 @@
 #include <iostream>
 #include "card.h"
 
-Rank& operator++(Rank& orig)
-{
-  orig = static_cast<Rank>(orig + 1); // static_cast required because enum + int -> int
-  return orig;
-}
-
-Rank operator++(Rank& orig, int)
-{
-  Rank rVal = orig;
-  ++orig;
-  return rVal;
-}
-
-Suite card::getSuite()
+std::string card::getSuite()
 {
     return suite;
 }
 
-Rank card::getRank()
+std::string card::getRank()
 {
     return rank;
 }
 
-void card::setSuite(Suite initSuite)
+int card::getSuiteVal()
+{
+    return suiteVal;
+}
+
+int card::getRankVal()
+{
+    return rankVal;
+}
+
+void card::setSuite(std::string initSuite)
 {
     suite = initSuite;
 }
 
-void card::setRank(Rank initRank)
+void card::setRank(std::string initRank)
 {
     rank = initRank;
 }
 
-void card::printDeck(card deck[])
+void card::setSuiteVal(int initSuite)
 {
-    for (int i = 0; i < 13; i++)
+    suiteVal = initSuite;
+
+    switch (initSuite)
     {
-        switch(i)
+    case 1:
+        setSuite("CLUBS");
+        break;
+    case 2:
+        setSuite("DIAMONDS");
+        break;
+    case 3:
+        setSuite("HEARTS");
+        break;
+    case 4:
+        setSuite("SPADES");
+        break;
+    }
+}
+
+void card::setRankVal(int initRank)
+{
+    rankVal = initRank;
+
+    switch (initRank)
+    {
+    case 1:
+        setRank("ACE");
+        break;
+    case 2:
+        setRank("TWO");
+        break;
+    case 3:
+        setRank("THREE");
+        break;
+    case 4:
+        setRank("FOUR");
+        break;
+    case 5:
+        setRank("FIVE");
+        break;
+    case 6:
+        setRank("SIX");
+        break;
+    case 7:
+        setRank("SEVEN");
+        break;
+    case 8:
+        setRank("EIGHT");
+        break;
+    case 9:
+        setRank("NINE");
+        break;
+    case 10:
+        setRank("TEN");
+        break;
+    case 11:
+        setRank("JACK");
+        break;
+    case 12:
+        setRank("KING");
+        break;
+    case 13:
+        setRank("QUEEN");
+        break;
+    }
+}
+
+void card::printCard()
+{
+    std::cout << getRank() << " of " << getSuite() << std::endl;
+}
+
+//Non-class Functions
+
+void printDeck(card array[])
+{
+    for (int i = 0; i < 52; i++)
+    {
+        array[i].printCard();
+    }
+}
+
+void makeDeck(card array[])
+{
+    int index;
+    card temp;
+
+    for (int i = 1; i <= 4; i++)
+    {
+        for (int j = 1; j <= 13; j++)
         {
-            case 0:
-                std::cout << "Suite is: " << deck[i].getSuite() << std::endl;
-                std::cout << "Rank is: " << i << std::endl;
-                switch(deck[i].getSuite())
-                {
-                    
-                    case 0:
-                        std::cout << "ACE" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "ACE" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "ACE" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "ACE" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 1:
-                std::cout << "Suite is: " << deck[i].getSuite() << std::endl;
-                std::cout << "Rank is: " << i << std::endl;
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "TWO" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "TWO" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "TWO" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "TWO" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 2:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "THREE" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "THREE" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "THREE" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "THREE" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 3:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "FOUR" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "FOUR" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "FOUR" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "FOUR" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 4:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "FIVE" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "FIVE" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "FIVE" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "FIVE" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 5:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "SIX" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "SIX" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "SIX" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "SIX" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 6:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "SEVEN" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "SEVEN" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "SEVEN" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "SEVEN" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 7:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "EIGHT" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "EIGHT" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "EIGHT" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "EIGHT" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 8:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "NINE" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "NINE" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "NINE" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "NINE" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 9:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "TEN" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "TEN" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "TEN" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "TEN" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 10:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "JACK" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "JACK" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "JACK" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "JACK" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 11:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "KING" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "KING" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "KING" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "KING" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
-            case 12:
-                switch(deck[i].getSuite())
-                {
-                    case 0:
-                        std::cout << "QUEEN" << " of " << "CLUBS" << std::endl;
-                        break;
-                    case 1:
-                        std::cout << "QUEEN" << " of " << "DIAMONDS" << std::endl;
-                        break;
-                    case 2:
-                        std::cout << "QUEEN" << " of " << "HEARTS" << std::endl;
-                        break;
-                    case 3:
-                        std::cout << "QUEEN" << " of " << "SPADES" << std::endl;
-                        break;
-                }
-                break;
+            temp.setRankVal(j);
+            temp.setSuiteVal(i);
+            array[index] = temp;
+            index++;
         }
     }
+
+    std::cout << "Deck Created: "
+              << "\n\n";
 }
 
-void card::makeSection(card deck[], Suite toMake, int &index)
+void shuffleDeck(card cards[])
 {
-    card temp; 
-    int tempIndex = index + 13;
+    card temp;
+    
     int i = 0;
-    Rank currentRank = ACE;
-
-    while (i < tempIndex)
+    int j = 26;
+    for (int x = 0; x < 52; x++)
     {
+        temp.setRankVal(i);
+        temp.setSuiteVal(i);
+
+        cards[x] = temp;
+
+        temp.setRankVal(j);
+        temp.setSuiteVal(j);
+
+        cards[x + 1] = temp;
         
-        temp.setRank(currentRank);
-        temp.setSuite(toMake);
-        std::cout << "(Make Section) Suite is: " << temp.getSuite() << std::endl;
-        std::cout << "(Make Section) Rank is: " << temp.getRank() << std::endl;
 
-        deck[index] = temp;
+        //shhhhh I didn't steal this
+        //cards[x + 1].setInfo(copyCards[j].getSuit(), copyCards[j].getRank());
+        //cards[x].setInfo(copyCards[i].getSuit(), copyCards[i].getRank());
+        
+        x++;
         i++;
-        currentRank++;
+        j++;
     }
-    index += 13;
+
+    std::cout << "Deck Shuffled" << std::endl;
 }
-
-void card::makeDeck(card deck[])
-{
-    int index = 0;
-
-    //card::makeSection(deck, CLUBS, index);
-    //card::makeSection(deck, HEARTS, index);
-    card::makeSection(deck, SPADES, index);
-    // card::makeSection(deck, DIAMONDS, index);
-}
-
-// void shuffle();
-// void perfectShuffle();

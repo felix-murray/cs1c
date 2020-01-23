@@ -1,13 +1,15 @@
 #include "card.h"
 #include <iostream>
+
 int main()
 {
     system("clear");
-    card cards[14];   
 
-    card::makeDeck(cards);
+    card myDeck[52];
+    makeDeck(myDeck);
 
-    card::printDeck(cards);
-
+    shuffleDeck(myDeck);
+    printDeck(myDeck);
+    
     return 0;
 }
