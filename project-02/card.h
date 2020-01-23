@@ -3,52 +3,29 @@
 
 #include <string>
 
-enum Suite
-{
-    CLUBS,
-    DIAMONDS,
-    HEARTS,
-    SPADES
-};
-
-enum Rank
-{
-    ACE,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    JACK,
-    KING,
-    QUEEN
-};
-
-Rank& operator++(Rank& orig);
-Rank operator++(Rank& orig, int);
-
 class card 
 {
     public:
-        Suite getSuite();
-        Rank getRank();
-        void setSuite(Suite initSuite);
-        void setRank(Rank initSuite);
-
-        static void makeSection(card deck[], Suite toMake, int &index);
-        static void makeDeck(card deck[]);
-        // void shuffle();
-        // void perfectShuffle();
-        static void printDeck(card deck[]);
-
+        std::string getSuite();
+        std::string getRank();
+        int getSuiteVal();
+        int getRankVal();
         
+        void setSuite(std::string initSuite);
+        void setRank(std::string initSuite);
+        void setSuiteVal(int initSuiteVal);
+        void setRankVal(int initRankVal);
+
+        void printCard();
     private:
-        Suite suite;
-        Rank rank;
+        std::string suite;
+        int suiteVal;
+        std::string rank;
+        int rankVal;
 };
+
+void makeDeck(card array[]);
+void printDeck(card array[]);
+void shuffleDeck(card array[]);
 
 #endif
