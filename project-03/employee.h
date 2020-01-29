@@ -7,7 +7,7 @@
 class employee
 {
     public:
-        /* GETTERS */
+        /*********  Accessor Functions  **********/
         std::string getName();
         std::string getID();
         std::string getPhoneNumber();
@@ -16,7 +16,7 @@ class employee
         std::string getJobTitle();
         int getSalary();
 
-        /* SETTERS */
+        /*********  Mutator Functions  **********/
         void setName(std::string initName);
         void setID(std::string initID);
         void setPhoneNumber(std::string initPhoneNumber);
@@ -36,7 +36,7 @@ class employee
                     int initDay, 
                     int initYear);
 
-        /* CONSTRUCTORS */
+        /*********  Constructors  **********/
         employee();
         employee(std::string initName, 
                    std::string initID,
@@ -49,7 +49,7 @@ class employee
                    int initDay, 
                    int initYear);
     
-        /* METHODS */
+        /*********  Other Methods  **********/
         void print();
 
     private:

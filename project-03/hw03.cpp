@@ -1,3 +1,29 @@
+//--------------------------------------------------------------------------
+//  Project name: HW03
+//--------------------------------------------------------------------------
+//  Creator's name and email: Felix Murray felix.murray@gmail.com
+//  Course Selection: CS1C
+//  Due Date: 1/30/2020
+//--------------------------------------------------------------------------
+//  Purpose: Create objects of different classes utilizing inheritance and 
+//           composition and instantiate said objects using constructors 
+//           and mutator functions.
+//--------------------------------------------------------------------------
+//  Algorithm:
+//      Step 1: Create employee object using default constructor. 
+//      Step 2: Use employee's print method to print the default values of
+//              the object to the console.
+//      Step 3: Change each of the attributes of the employee object using
+//              their respective mutator functions.
+//      Step 4: Use employee's print method to print the changed values of
+//              the object to the console.
+//      Step 5: Repeat previous steps for a programmer and softwareArchitect 
+//              object.
+//      Step 6: Create 3 employees, one programmer, and one softwareArchitect
+//              using a constructor as opposed to using mutator functions.
+//      Step 7: Program Exits.
+//--------------------------------------------------------------------------
+
 #include <iostream>
 #include "date.h"
 #include "employee.h"

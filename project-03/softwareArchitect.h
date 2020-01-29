@@ -6,13 +6,13 @@
 class softwareArchitect : public employee
 {
     public:
-        /* GETTERS */
+        /*********  Accessor Functions  **********/
         int getDepartmentNumber();
         std::string getSupervisor();
         double getSalaryIncreasePercentage();
         int getYearsExperience();
 
-        /* SETTERS */
+        /*********  Mutator Functions  **********/
         void setDepartmentNumber(int initDepartmentNumber);
         void setSupervisor(std::string initSupervisor);
         void setSalaryIncreasePercentage(double initSalaryIncreasePercentage);
@@ -22,7 +22,7 @@ class softwareArchitect : public employee
                     double initSalaryIncreasePercentage, 
                     int initYearsExperience);
 
-        /* CONSTRUCTORS */
+        /*********  Constructors  **********/
         softwareArchitect();
         softwareArchitect(std::string initName, 
                           std::string initID,
@@ -39,7 +39,7 @@ class softwareArchitect : public employee
                           double initSalaryIncreasePercentage,
                           int initYearsExperience);
 
-        /* METHODS */
+        /*********  Other Methods  **********/
         void print();
 
     private:
