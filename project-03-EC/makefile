@@ -1,5 +1,5 @@
 ##Set flags and gcc variable for easier reading
-ASSIGNMENT = hw03-ec
+ASSIGNMENT = hw03ec
 CC = g++
 FLAGS = -std=c++14 -Wall -g
 
@@ -12,7 +12,7 @@ OBJ_3 = time.o
 DEF_3 = time.cpp
 
 ##The list of all project files
-PROJFILES = makefile $(ASSIGNMENT).cpp extendedTime.h extendedTime.cpp invoice.h invoice.cpp time.h time.cpp
+PROJFILES = makefile $(ASSIGNMENT).cpp extendedTime.h extendedTime.cpp invoice.h invoice.cpp time.h time.cpp $(ASSIGNMENT).scr
 
 ##Definition for function "all"
 all: $(ASSIGNMENT)
