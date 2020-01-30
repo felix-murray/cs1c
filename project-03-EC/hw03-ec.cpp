@@ -7,7 +7,7 @@ int main ()
 {
     system("clear");
     ExtendedTime test (2, 54, 3, PACIFIC);
-    Invoice receipet(12,8,56);
+    Invoice receipet(12, 8, 56);
 
     std::cout << test;
     std::cout << std::endl;
