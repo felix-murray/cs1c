@@ -17,7 +17,7 @@ OBJ_4 = date.o
 DEF_4 = date.cpp
 
 ##Project Files
-PROJFILES = makefile $(ASSIGNMENT).cpp date.cpp employee.cpp programmer.cpp softwareArchitect.cpp $(ASSIGNMENT).scr
+PROJFILES = makefile $(ASSIGNMENT).cpp date.cpp date.h employee.cpp employee.h programmer.cpp programmer.h softwareArchitect.cpp softwareArchitect.h $(ASSIGNMENT).scr
 
 ##Definition for function "all"
 all: $(ASSIGNMENT)
