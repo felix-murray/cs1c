@@ -4,6 +4,8 @@
 #include <string>
 #include "time.h"
 
+
+//"EMPTY" used for default constructor
 enum TimeZone 
 {
     PACIFIC,

@@ -24,19 +24,19 @@ void ExtendedTime::printTime() const
 
     switch(time_zone)
     {
-        case 0:
+        case PACIFIC:
             std::cout << "PACIFIC" << std::endl;
             break;
-        case 1:
+        case MOUNTAIN:
             std::cout << "MOUNTAIN" << std::endl;
             break;
-        case 2:
+        case CENTRAL:
             std::cout << "CENTRAL" << std::endl;
             break;
-        case 3:
+        case EASTERN:
             std::cout << "EASTERN" << std::endl;
             break;
-        case 4:
+        case EMPTY:
             std::cout << "EMPTY" << std::endl;
             break;
     }
