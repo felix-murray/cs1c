@@ -6,11 +6,15 @@
 int main ()
 {
     system("clear");
-    ExtendedTime test (2, 54, 3, PACIFIC);
+    ExtendedTime extTime (2, 54, 3, PACIFIC);
     Invoice receipet(12, 8, 56);
 
-    std::cout << test;
+    std::cout << "EXTENDED TIME: " 
+              << std::endl <<std::endl; 
+    std::cout << extTime;
     std::cout << std::endl;
+    std::cout << "PURCHASE TIME: " 
+              << std::endl <<std::endl; 
     std::cout << receipet;
     std::cout << std::endl;
 
