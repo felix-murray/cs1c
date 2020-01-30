@@ -4,7 +4,7 @@
 #include <string>
 #include "time.h"
 
-
+/* Enumerated Type TimeZone */
 //"EMPTY" used for default constructor
 enum TimeZone 
 {
