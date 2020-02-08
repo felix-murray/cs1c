@@ -147,6 +147,11 @@ void employee::print()
     std::cout << std::endl;
 }
 
+void employee::addToAge(int value)
+{
+    *this + value;
+}
+
 employee& operator++(employee& orig)
 {
   orig.setAge(orig.getAge() + 1);
@@ -222,4 +227,9 @@ std::istream& operator>>(std::istream& is, employee& obj)
     system("clear");
 
     return is;
+}
+
+bool operator==(employee &employeeObj, employee &employeeObjToCompare)
+{
+    return (employeeObj.getPhoneNumber() == employeeObjToCompare.getPhoneNumber());
 }

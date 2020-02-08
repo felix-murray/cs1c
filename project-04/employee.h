@@ -51,6 +51,7 @@ class employee
     
         /* METHODS */
         void print();
+        void addToAge(int value);
 
         /* OPERATORS */
         employee operator+(int val);                                            //Unary (Addition)
@@ -58,6 +59,7 @@ class employee
         friend employee operator++(employee& orig, int);                        //postincrement
         friend std::ostream& operator<<(std::ostream& os, employee& obj);        //insertion stream
         friend std::istream& operator>>(std::istream& is, employee& obj);
+        friend bool operator==(employee &employeeObj, employee &employeeObjToCompare);
     private:
         std::string name;
         std::string ID;
