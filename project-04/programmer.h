@@ -6,14 +6,14 @@
 class programmer : public employee
 {
     public:
-        /* GETTERS */
+        /*********  Accessor Functions  **********/
         int getDepartmentNumber();
         std::string getSupervisor();
         double getSalaryIncreasePercentage();
         bool getKnowsCPP();
         bool getKnowsJava();
 
-        /* SETTERS */
+        /*********  Mutator Functions  **********/
         void setDepartmentNumber(int initDepartmentNumber);
         void setSupervisor(std::string initSupervisor);
         void setSalaryIncreasePercentage(double initSalaryIncreasePercentage);
@@ -25,7 +25,7 @@ class programmer : public employee
                     bool initKnowsCPP,
                     bool initKnowsJava);
 
-        /* CONSTRUCTORS */
+        /*********  Constructors  **********/
         programmer();
         programmer(std::string initName, 
                        std::string initID,
@@ -43,7 +43,7 @@ class programmer : public employee
                        bool initKnowsCPP,
                        bool initKnowsJava);
 
-        /* METHODS */
+        /*********  Other Methods  **********/
         void print();
         friend bool comparePhoneNumber(employee &employeeObj, programmer &programmerObj);
     private:

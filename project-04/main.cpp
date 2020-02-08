@@ -1,3 +1,29 @@
+//--------------------------------------------------------------------------
+//  Project name: HW04
+//--------------------------------------------------------------------------
+//  Creator's name and email: Felix Murray felix.murray@gmail.com
+//  Course Selection: CS1C
+//  Due Date: 2/11/2020
+//--------------------------------------------------------------------------
+//  Purpose: Create objects of different classes utilizing inheritance and 
+//           composition and instantiate said objects using constructors 
+//           and mutator functions as well as utilize overloaded operators.
+//--------------------------------------------------------------------------
+//  Algorithm:
+//      Step 1: Create employee object using default constructor and all 
+//              other objects using super constructors.
+//      Step 2: Use employee's extraction stream overload to recieve values
+//              from the user to change all object attributes.
+//      Step 4: Use object print methods to print all created objects
+//              to the console.
+//      Step 5: Test comparePhoneNumber and Equals Operator Overload and 
+//              output results of each comparison.
+//      Step 6: Test postincrement, preincrement, addToAge function, and 
+//              Addition Operator Overload and output results of each to
+//              the console.
+//      Step 7: Program Exits.
+//--------------------------------------------------------------------------
+
 #include <iostream>
 #include "date.h"
 #include "employee.h"
@@ -76,6 +102,4 @@ int main()
     custom = custom + 5;
     std::cout << "\n";
     std::cout << custom;
-
-    
 }
