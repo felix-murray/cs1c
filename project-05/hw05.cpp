@@ -90,6 +90,7 @@ int main ()
 
     selectionSort(winners);
     print(winners);
+    std::cout << "Generated winning numbers using range of " << numShuffle << " to select " << numWinning << " numbers for a winner.";
 
     return 0;
 }

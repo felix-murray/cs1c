@@ -15,7 +15,7 @@ $(ASSIGNMENT): $(ASSIGNMENT).cpp
 
 ##Definition for function "clean"
 clean:
-	rm *.o $(ASSIGNMENT) $(ASSIGNMENT).tar
+	rm *.o $(ASSIGNMENT) $(ASSIGNMENT).tar $(ASSIGNMENT).scr
 
 ##Definition for function "tar"
 tar:
