@@ -474,7 +474,7 @@ std::istream& operator>>(std::istream& is, employee& obj)
     return is;
 }
 
-/* Equals Operator Overload */
+/* Equality Operator Overload */
 bool operator==(employee &employeeObj, employee &employeeObjToCompare)
 {
     return (employeeObj.getPhoneNumber() == employeeObjToCompare.getPhoneNumber());
