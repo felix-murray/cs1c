@@ -1,3 +1,24 @@
+//--------------------------------------------------------------------------
+//  Project name: HW05
+//--------------------------------------------------------------------------
+//  Creator's name and email: Felix Murray felix.murray@gmail.com
+//  Course Selection: CS1C
+//  Due Date: 2/11/2020
+//--------------------------------------------------------------------------
+//  Purpose: Demonstrate vectors using a lottery numbers function.
+//--------------------------------------------------------------------------
+//  Algorithm:
+//      Step 1: Initialize input variables and integer vector. 
+//      Step 2: Prompt the user for how many numbers possible will be 
+//              randomly shuffled through in the lottery function.
+//      Step 3: Prompt the user for how many numbers a winning combination 
+//              for the lottery will be.
+//      Step 4: Call lottery function and assign it to become the new value
+//              of the previously created vector.
+//      Step 5: Print winning numbers using print function.
+//      Step 6: Program Exits.
+//--------------------------------------------------------------------------
+
 #include <iostream>
 #include <vector>
 #include "funtions.h"
@@ -60,7 +81,7 @@ int main ()
     std::cout << "Enter the number of winning numbers: ";
     std::cin >> numWinning;
 
-    winners = Lotto(numShuffle, numWinning);
+    winners = lottery(numShuffle, numWinning);
 
     print(winners);
 
