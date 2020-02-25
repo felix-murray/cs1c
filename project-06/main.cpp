@@ -6,7 +6,7 @@ int main()
 {
     system("clear");
     
-    std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    char alphabet[27] = "abcdefghijklmnopqrstuvwxyz";
 
     /* Tested with values: (11,18); (4,22); (0,25) */
     getInput(alphabet);
