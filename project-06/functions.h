@@ -3,7 +3,7 @@
 
 #include <string>
 
-void reverse(std::string toReverse, int first, int last);
-void getInput(std::string toReverse);
+void reverse(char toReverse[], int first, int last);
+void getInput(char toReverse[]);
 
 #endif

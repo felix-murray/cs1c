@@ -3,50 +3,37 @@
 #include <algorithm>
 #include "functions.h"
 
-void reverse(std::string toReverse, int first, int last)
+void printArray(char toPrint[])
 {
-    static std::string final;
-    static std::string reversed;
-    static bool isFirst = true;
-    size_t numOfChars;
-    std::string str;
-
-    if (isFirst)
+    for (int i = 0; i < 26; i++)
     {
-        str.assign(toReverse, first, last - first + 1);
-        reversed.replace(0, toReverse.size(), toReverse);
-        isFirst = false;
-    }
-    else
-    {
-        str = toReverse;
-    }
-    numOfChars = str.size();
-
-    if (numOfChars == 1)
-    {
-        final.push_back(str[numOfChars - 1]);
-        reversed.erase(first, last - first + 1);
-        reversed.insert(first, final);
-
-        std::cout << "Reversed String is: " << reversed << std::endl;
-
-        /* Reseting Static Variables */
-        isFirst = true;
-        final.clear();
-        reversed.clear();
-    }
-    else
-    {
-        final.push_back(str[numOfChars - 1]);
-        reverse(str.substr(0, numOfChars - 1), first, last);
+        std::cout << toPrint[i];
     }
 }
 
-void getInput(std::string toReverse)
+void reverse(char toReverse[], int first, int last)
+{
+    if (first >= last)
+    {
+        std::cout << "\nReversed String is: ";
+        printArray(toReverse);
+        std::cout << "\n\n";
+        return;
+    }
+
+    int temp = toReverse[first];
+    toReverse[first] = toReverse[last];
+    toReverse[last] = temp;
+
+    // Recursive Function calling
+    reverse(toReverse, first + 1, last - 1);
+}
+
+void getInput(char toReverse[])
 {
     int first;
     int last;
+    char input;
 
     bool exit = false;
     while (first != -1)
@@ -68,6 +55,8 @@ void getInput(std::string toReverse)
             break;
         }
         reverse(toReverse, first, last);
-        system("read -n 1 -s -p \"\nPress any key to continue...\"");
+
+        std::cout << "Press any key to continue...";
+        std::cin >> input;
     }
 }
