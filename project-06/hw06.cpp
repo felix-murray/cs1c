@@ -89,6 +89,7 @@ void reverse(char toReverse[], int first, int last)
         std::cout << "\nReversed String is: ";
         printArray(toReverse);
         std::cout << "\n\n";
+        //reset array to original state
         return;
     }
     /* GENERAL CASE */
@@ -115,6 +116,7 @@ void reverse(char toReverse[], int first, int last)
  **************************************s****************************/
 void getInput(char toReverse[])
 {
+    char alphabet[27] = "abcdefghijklmnopqrstuvwxyz";
     int first = 0;
     int last = 0;
     char input;
@@ -138,6 +140,8 @@ void getInput(char toReverse[])
             break;
         }
         reverse(toReverse, first, last);
+        //reset c string to original value
+        toReverse = alphabet;
 
         std::cout << "Press any key to continue...";
         std::cin >> input;
