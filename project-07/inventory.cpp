@@ -5,18 +5,29 @@
 //Inventory Management System
 namespace ims
 {
+//assignment of namespace variables    
+int nikeShoesQty = 22;
+int armourQty = 33;
+int brooksQty = 11;
+int asicsQty = 20;
+int nikeShortsQty = 77;
 
+float nikeShoesPrice = 145.99;
+float armourPrice = 29.99;
+float brooksPrice = 111.44;
+float asicsPrice = 165.88;
+float nikeShortsPrice = 45.77;
+
+//static variable assignment
 float inventory::total = 0.0;
 
 inventory::inventory()
 {
-    inv = new receipt;
     toBuy = new int[5];
 }
 
 inventory::inventory(const inventory &otherObj)
 {
-    inv = new receipt;
     toBuy = new int[5];
     total = 0.0;
 
@@ -28,7 +39,6 @@ inventory::inventory(const inventory &otherObj)
 
 inventory::~inventory()
 {
-    delete[] inv;
     delete[] toBuy;
 }
 
@@ -43,41 +53,41 @@ void inventory::printReceipt()
         case 0:
             if (toBuy[0] != 0)
             {
-                std::cout << "NIKE BASKETBALL SHOES:  " << toBuy[0] << "    $" << toBuy[0] * inv[0].nikeShoesPrice
+                std::cout << "NIKE BASKETBALL SHOES:  " << toBuy[0] << "    $" << toBuy[0] * ims::nikeShoesPrice
                           << std::endl;
-                total += toBuy[0] * inv[0].nikeShoesPrice;
+                total += toBuy[0] * ims::nikeShoesPrice;
             }
             break;
         case 1:
             if (toBuy[1] != 0)
             {
-                std::cout << "UNDER ARMOUR T-SHIRTS:  " << toBuy[1] << "    $" << toBuy[1] * inv[0].armourPrice
+                std::cout << "UNDER ARMOUR T-SHIRTS:  " << toBuy[1] << "    $" << toBuy[1] * ims::armourPrice
                           << std::endl;
-                total += toBuy[1] * inv[0].armourPrice;
+                total += toBuy[1] * ims::armourPrice;
             }
             break;
         case 2:
             if (toBuy[2] != 0)
             {
-                std::cout << "BROOKS RUNNING SHOES:   " << toBuy[2] << "    $" << toBuy[2] * inv[0].brooksPrice
+                std::cout << "BROOKS RUNNING SHOES:   " << toBuy[2] << "    $" << toBuy[2] * ims::brooksPrice
                           << std::endl;
-                total += toBuy[2] * inv[0].brooksPrice;
+                total += toBuy[2] * ims::brooksPrice;
             }
             break;
         case 3:
             if (toBuy[3] != 0)
             {
-                std::cout << "ASICS RUNNING SHOES:    " << toBuy[3] << "    $" << toBuy[3] * inv[0].asicsPrice
+                std::cout << "ASICS RUNNING SHOES:    " << toBuy[3] << "    $" << toBuy[3] * ims::asicsPrice
                           << std::endl;
-                total += toBuy[3] * inv[0].asicsPrice;
+                total += toBuy[3] * ims::asicsPrice;
             }
             break;
         case 4:
             if (toBuy[4] != 0)
             {
-                std::cout << "NIKE SHORTS:            " << toBuy[4] << "    $" << toBuy[4] * inv[0].nikeShortsPrice
+                std::cout << "NIKE SHORTS:            " << toBuy[4] << "    $" << toBuy[4] * ims::nikeShortsPrice
                           << std::endl;
-                total += toBuy[4] * inv[0].nikeShortsPrice;
+                total += toBuy[4] * ims::nikeShortsPrice;
             }
             break;
         }
@@ -93,15 +103,15 @@ void inventory::printInventory()
 {
     std::cout << "~CURRENT INVENTORY~"
               << std::endl
-              << "NIKE BASKETBALL SHOES:  " << inv[0].nikeShoesQty
+              << "NIKE BASKETBALL SHOES:  " << ims::nikeShoesQty
               << std::endl
-              << "UNDER ARMOUR T-SHIRTS:  " << inv[0].armourQty
+              << "UNDER ARMOUR T-SHIRTS:  " << ims::armourQty
               << std::endl
-              << "BROOKS RUNNING SHOES:   " << inv[0].brooksQty
+              << "BROOKS RUNNING SHOES:   " << ims::brooksQty
               << std::endl
-              << "ASICS RUNNING SHOES:    " << inv[0].asicsQty
+              << "ASICS RUNNING SHOES:    " << ims::asicsQty
               << std::endl
-              << "NIKE SHORTS:            " << inv[0].nikeShortsQty
+              << "NIKE SHORTS:            " << ims::nikeShortsQty
               << std::endl
               << std::endl;
 }
@@ -118,10 +128,10 @@ void inventory::purchase()
     toBuy[2] = 1;
     toBuy[4] = 4;
 
-    inv[0].nikeShoesQty -= 2;
-    inv[0].armourQty -= 3;
-    inv[0].brooksQty -= 1;
-    inv[0].nikeShortsQty -= 4;
+    ims::nikeShoesQty -= 2;
+    ims::armourQty -= 3;
+    ims::brooksQty -= 1;
+    ims::nikeShortsQty -= 4;
 
     //print inventory after purchase
     printInventory();
