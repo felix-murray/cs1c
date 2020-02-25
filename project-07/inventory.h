@@ -16,21 +16,24 @@ extern float armourPrice;
 extern float brooksPrice;
 extern float asicsPrice;
 extern float nikeShortsPrice;
+
 class inventory
 {
 public:
+    /*********  Default Constructor  **********/
     inventory();
+    /*********  Copy Constructor  **********/
     inventory(const inventory &otherObj);
+    /*********  Destructor  **********/
     ~inventory();
 
+    /*********  Methods  **********/
     void populateInventory();
     void printReceipt();
     void printInventory();
     void purchase();
-
 private:
     int *toBuy;
-    const float SALES_TAX = 0.0825;
     static float total;
 };
 } // namespace ims
