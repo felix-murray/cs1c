@@ -1,9 +1,13 @@
+#ifndef CIRCLE_H
+#define CIRCLE_H
+
 #include "shape.h"
 
 class Circle : public Shape
 {
     public:
         using Shape::updateDimensions;
+        
         Circle() { }
         Circle(int r) { radius = r; }
 
@@ -14,3 +18,5 @@ class Circle : public Shape
     private:
         int radius;
 };
+
+#endif
