@@ -1,3 +1,6 @@
+#ifndef SHAPE_H
+#define SHAPE_H
+
 class Shape
 {
     public:
@@ -7,8 +10,10 @@ class Shape
         void print();
         
         //add UpdateDimensions virtual function
-        virtual void updateDimensions() = 0;
+        virtual void updateDimensions() { }
     private:
         int x; //x dimension
         int y; //y dimension
 };
+
+#endif

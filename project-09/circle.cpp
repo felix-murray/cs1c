@@ -4,5 +4,6 @@
 void Circle::print()
 {
     Shape::print();
-    std::cout << "Radius: " << radius;
+    std::cout << "Shape: Circle" << std::endl;
+    std::cout << "Radius: " << radius << "\n\n";
 }

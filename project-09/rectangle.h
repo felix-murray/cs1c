@@ -1,8 +1,12 @@
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
 #include "shape.h"
 
 class Rectangle : public Shape
 {
     public:
+        using Shape::updateDimensions;
         Rectangle() { }
         Rectangle (int l, int w) {length = l, width = w;}
 
@@ -14,3 +18,5 @@ class Rectangle : public Shape
         int length;
         int width;
 };
+
+#endif
