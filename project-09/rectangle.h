@@ -5,18 +5,22 @@
 
 class Rectangle : public Shape
 {
-    public:
-        using Shape::updateDimensions;
-        Rectangle() { }
-        Rectangle (int l, int w) {length = l, width = w;}
+public:
+    using Shape::calcArea;
+    using Shape::calcPerimeter;
 
-        //override print
-        void print();
-        //override UpdateDimensions
-        void updateDimensions(int l, int w) {length = l, width = w;}
-    private:
-        int length;
-        int width;
+    Rectangle() {}
+    Rectangle(int l, int w) { length = l, width = w; }
+
+    //override UpdateDimensions
+    double calcPerimeter() { return (length + width) * 2; }
+    double calcArea() { return length * width; }
+
+    friend void printRectanglePerimeter();
+    friend void printRectangleArea();
+private:
+    int length;
+    int width;
 };
 
 #endif
