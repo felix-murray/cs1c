@@ -9,8 +9,8 @@ class Shape
 
         void print();
         
-        //add UpdateDimensions virtual function
         virtual void updateDimensions() { }
+        virtual void move() { }
     private:
         int x; //x dimension
         int y; //y dimension

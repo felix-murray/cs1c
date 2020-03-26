@@ -7,7 +7,8 @@ class Circle : public Shape
 {
     public:
         using Shape::updateDimensions;
-        
+        using Shape::move;
+
         Circle() { }
         Circle(int r) { radius = r; }
 
@@ -15,6 +16,7 @@ class Circle : public Shape
         void print();
         //override UpdateDimensions
         void updateDimensions(int r) { radius = r;}
+        void move(int loc);
     private:
         int radius;
 };
