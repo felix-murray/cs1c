@@ -3,17 +3,15 @@
 
 class Shape
 {
-    public:
-        Shape() { } 
-        Shape(int initX, int initY) { x = initX, y = initY;}
+public:
+    Shape() {}
+    Shape(int initX, int initY) { x = initX, y = initY; }
 
-        void print();
-        
-        virtual void updateDimensions() { }
-        virtual void move() { }
-    private:
-        int x; //x dimension
-        int y; //y dimension
+    virtual double calcPerimeter() { } 
+    virtual double calcArea() { }
+private:
+    int x; //x dimension
+    int y; //y dimension
 };
 
 #endif

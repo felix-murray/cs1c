@@ -1,37 +1,40 @@
+#include <iostream>
 #include "shape.h"
-#include "circle.h"
 #include "rectangle.h"
+#include "triangle.h"
+
+template <class polygonType>
+polygonType printPerimeter(polygonType &obj)
+{
+    std::cout << "Perimeter: " << obj.calcPerimeter()
+              << std::endl;
+}
+
+template <class polygonType>
+polygonType printArea(polygonType &obj)
+{
+    std::cout << "Area: " << obj.calcArea()
+              << std::endl;
+}
 
 int main()
 {
     system("clear");
-    //make some shapes
-    Rectangle myRect(5, 6);
-    Circle myCirc(8);
 
+    //Instantiate a Rectangle and a Triangle object.
+    Rectangle myRect(2, 3);
+    Triangle myTrig(5);
 
-    //test print
-    myRect.print();
-    myCirc.print();
+    //Call the functions printPerimeter and printArea & output results
 
-    //test update dimensions & move
-    myRect.updateDimensions(6, 7);
-    myRect.move(15);
-    myCirc.updateDimensions(4);
-    myCirc.move(25);
-
-    //print to show difference
-    myRect.print();
-    myCirc.print();
+    std::cout << "~Rectangle~" << std::endl;
+    printPerimeter(myRect);
+    printArea(myRect);
+    std::cout << "\n\n";
+    
+    std::cout << "~Triangle~" << std::endl;
+    printPerimeter(myTrig);
+    printArea(myTrig);
 
     return 0;
 }
-
-/* Questions */
-
-//Do we need to override Move for derived classes? Explain.
-
-//What kind of binding is occurring for Print vs UpdateDimensions? 
-
-//Explain the difference between static and dynamic binding, static and dynamic polymorphism?
-
