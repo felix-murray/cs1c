@@ -1,10 +1,6 @@
 #include <iostream>
 #include "queue.h"
 
-/*
-- Run Valgrind to check for memory leaks
-*/
-
 int main()
 {
     /*********  Queue 1 (Type Integer)  **********/
