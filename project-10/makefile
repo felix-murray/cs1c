@@ -12,14 +12,17 @@ all: $(ASSIGNMENT)
 ##Statement definition for compilation of objects into execution file
 $(ASSIGNMENT): $(ASSIGNMENT).cpp
 	$(CC) $(FLAGS) $(ASSIGNMENT).cpp -o $(ASSIGNMENT)
-##Define every object inside of project (This is OBJ_1)
+
+##Definition for function "clean_directory"
+define clean_directory
+	rm *.o $(ASSIGNMENT) $(ASSIGNMENT).tar $(ASSIGNMENT).scr
+
+	rm -r $(ASSIGNMENT).dSYM
+endef
 
 ##Definition for function "clean"
 clean:
-	rm *.o $(ASSIGNMENT) $(ASSIGNMENT).tar $(ASSIGNMENT).scr
-##Definition for function "empty"
-empty:	
-	rm -r $(ASSIGNMENT).dSYM
-##Definition for function "tar"
+	 $(call clean_directory)
+
 tar:
 	tar cf $(ASSIGNMENT).tar $(PROJFILES) 
