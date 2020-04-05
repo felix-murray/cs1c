@@ -2,7 +2,6 @@
 #define QUEUE_H_
 
 #include <iostream>
-#include <cassert>
 
 template <class Type>
 class queue
