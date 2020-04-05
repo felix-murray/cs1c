@@ -100,7 +100,6 @@ vector &vector::operator=(const vector &rhs) // copy assignment
     std::copy(rhs.elem, rhs.elem + rhs.vsize, pD); // use std::copy algorithm to copy rhs elements into pD double[]
     delete[] elem;                                 // deallocate old space
     elem = pD;                                     // now that we've copied new, deallocated old elems, reset elem pointer
-    //rhs.vsize = 0?
     vsize = 0;    // reset vector size
     return *this; // return a self-reference
 }
@@ -158,8 +157,8 @@ int main()
     cout << endl;
     cout << "************************************** " << endl;
     cout << "*           Running HW10             * " << endl;
-    cout << "*      Programmed by First Last      * " << endl;
-    cout << "*      CS1C Date & Time              * " << endl;
+    cout << "*      Programmed by Felix Murray    * " << endl;
+    cout << "*      CS1C TTH 12:30-2:50           * " << endl;
     cout << "************************************** " << endl;
     cout << endl;
 
@@ -169,8 +168,13 @@ int main()
     v.set(1, 100.5); // set v[1] to 100.5
 
     vector v2 = v; // [1.1] copy v to v2: what happens here?
+    /**
+     *
+     * Nothing happens, as v2 does not have a defined size.
+     *
+     */
     v2.set(0, 25); // set v2[0] to 25
-
+    
     cout << "v  double values: ";
     print(cout, v);
     cout << endl;
@@ -192,6 +196,11 @@ int main()
     cout << endl;
 
     v3 = v4; // [2.1] assign v4 to v3: what happens here?
+    /**
+     *
+     * Nothing happens, as the size assignment is over the limit.
+     *
+     */
 
     cout << "v3 double values (after assignment): ";
     print(cout, v3);
@@ -200,6 +209,11 @@ int main()
 
     vector v5{10};
     v5 = v5; // [2.2] self assignment: what happens here, any problems?
+     /**
+     *
+     * The operation works, however the compiler does throw warnings.
+     *
+     */
 
     // Q#5 - move assignment
 
@@ -217,3 +231,24 @@ int main()
 // WRITTEN ANSWERS
 
 // add written answers here ... Q#5
+
+/**
+ *
+ * 1. What is the difference between a copy and move operation?
+ * 
+ *  Copy operations will copy the contents of an object to another instance of an object. 
+ *  Move operations will delete the old instance of an object and move it to another instance of an object.
+ *
+ * 2. What happens when the temp vector (in function scope) is returned (by value) 
+ * from the fill_doublesfunction and assigned to v6 in main? 
+ * 
+ * The contents of the temp vector are put into v6.
+ * 
+ * 3. Is the copy or move constructor invoked? 
+ * 
+ * The move constructor is called, as the object is passed by value.
+ * 
+ * 4. How does this result in improved performance?
+ * 
+ *    Performance is improved as no additional memory is created.
+ */
