@@ -2,14 +2,8 @@
 #include <cassert>
 #include "queue.h"
 
-/*
-- Throw an exception if the capacity is exceeded. 
-- Throw an exception if your program tries to remove 
-  from an empty queue
-*/
 int main()
-{
-    
+{ 
     int queueSize;
     
     system("clear");
@@ -25,6 +19,7 @@ int main()
     queue<int> queue1(queueSize);
     queue1.initializeQueue();
     
+    //Test removal from empty queue exception
     std::cout << "Attempting to delete from empty queue (should throw exception)..." << std::endl;
     queue1.dequeue();
 
@@ -76,12 +71,10 @@ int main()
     std::cout << std::endl;
     queue1.printQueue();
 
-    //exception for adding to full queue
+    //Test addition to full queue exception
     std::cout << "\nAttempting to add to full queue (should throw exception)...";
     std::cout << std::endl;
     queue1.enqueue(1);
- 
-
 
     return 0;
 }
