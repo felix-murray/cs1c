@@ -36,14 +36,16 @@ int main()
     std::cout << "Removing 143..." << "\n\n";
     list1.deleteNode(60);
     list1.print();
+    list1.reverseList();
+    list1.print();
 
-    doublyLinkedList<int> list2;
-    list2 = list1;
-    list2.print();
+    // doublyLinkedList<int> list2;
+    // list2 = list1;
+    // list2.print();
 
-    //test copy constructor
-    doublyLinkedList<int> list3(list1);
-    list3.print();
+    // //test copy constructor
+    // doublyLinkedList<int> list3(list1);
+    // list3.print();
 
 
     return 0;

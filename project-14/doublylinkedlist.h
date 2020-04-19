@@ -26,6 +26,7 @@ public:
 
     void print() const;
     void reversePrint() const;
+    void reverseList() const;
 
     int length() const;
     Type front() const;
@@ -246,6 +247,25 @@ void doublyLinkedList<Type>::reversePrint() const
         current = current->back;
     }
     std::cout << std::endl;
+}
+
+template <class Type>
+void doublyLinkedList<Type>::reverseList() const
+{
+    node<Type> *left = first;
+    node<Type> *right = first;
+
+    while (right->next != nullptr)
+    {
+        right = right->next;
+    }
+
+    while (left != right && left->back != right)
+    {
+        swap(left->info, right->info);
+        left = left->next;
+        right = right->back;
+    }
 }
 
 template <class Type>
