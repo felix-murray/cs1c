@@ -34,6 +34,7 @@ public:
 
     bool search(const Type &searchItem) const;
     void insert(const Type &insertItem);
+    void insertMiddle(const Type &insertItem);
     void deleteNode(const Type &deleteItem);
 
     doublyLinkedList();
@@ -222,7 +223,7 @@ int doublyLinkedList<Type>::length() const
 template <class Type>
 void doublyLinkedList<Type>::print() const
 {
-    struct node<Type> *current;
+    node<Type> *current;
 
     current = first;
 
@@ -364,62 +365,86 @@ void doublyLinkedList<Type>::insert(const Type &insertItem)
 }
 
 template <class Type>
+void doublyLinkedList<Type>::insertMiddle(const Type &insertItem)
+{
+    node<Type> *temp = nullptr;
+    node<Type> *current = first;
+    node<Type> *newNode = (node<Type> *)malloc(sizeof(node<Type>));
+    newNode->info = insertItem;
+
+    int mid = (count % 2 == 0) ? (count / 2) : ((count + 1) / 2);
+
+    for (int i = 1; i < mid; i++)
+    {
+        current = current->next;
+    }
+
+    temp = current->next;
+    temp->back = newNode;
+    current->next = newNode;
+    newNode->back = current;
+    newNode->next = temp;
+    temp->back = newNode;
+}
+
+template <class Type>
 void doublyLinkedList<Type>::deleteNode(const Type &deleteItem)
 {
     node<Type> *current;
     node<Type> *trailCurrent;
-
     bool found;
 
     if (first == nullptr)
-        cout << "Cannot delete from an empty list." << endl;
-    else if (first->info == deleteItem)
-
     {
-        current = first;
-        first = first->next;
-
-        if (first != nullptr)
-            first->back = nullptr;
-        else
-            last = nullptr;
-
-        count--;
-
-        delete current;
+        std::cout << "Cannot delete from an empty list."
+                  << std::endl;
     }
     else
     {
-        found = false;
-        current = first;
-
-        while (current != nullptr && !found)
-            if (current->info >= deleteItem)
-                found = true;
-            else
-                current = current->next;
-
-        if (current == nullptr)
-            cout << "The item to be deleted is not in "
-                 << "the list." << endl;
-        else if (current->info == deleteItem)
-
+        if (first->info == deleteItem)
         {
-            trailCurrent = current->back;
-            trailCurrent->next = current->next;
-
-            if (current->next != nullptr)
-                current->next->back = trailCurrent;
-
-            if (current == last)
-                last = trailCurrent;
-
+            current = first;
+            first = first->next;
             count--;
+            if (first == nullptr)
+            {
+                last = nullptr;
+            }
+
             delete current;
         }
         else
-            cout << "The item to be deleted is not in list."
-                 << endl;
+        {
+            found = false;
+            trailCurrent = first;
+            current = first->next;
+
+            while (current != nullptr && !found)
+            {
+                if (current->info != deleteItem)
+                {
+                    trailCurrent = current;
+                    current = current->next;
+                }
+                else
+                {
+                    found = true;
+                }
+            }
+            if (found)
+            {
+                trailCurrent->next = current->next;
+                count--;
+                if (last == current)
+                {
+                    last = trailCurrent;
+                }
+                delete current;
+            }
+            else
+                std::cout << "The item to be deleted is not in "
+                          << "the list." << std::endl;
+        }
     }
 }
 
