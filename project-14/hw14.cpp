@@ -33,10 +33,11 @@ int main()
     list1.insert(60);
     list1.print();
     
-    std::cout << "Removing 143..." << "\n\n";
-    list1.deleteNode(60);
+    std::cout << "Removing 3rd node..." << "\n\n";
+    list1.deleteNode(62);
     list1.print();
-    list1.reverseList();
+    list1.insertMiddle(55);
+    //list1.reverseList();
     list1.print();
 
     // doublyLinkedList<int> list2;
