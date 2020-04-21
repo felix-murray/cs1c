@@ -21,9 +21,14 @@ Run valgrind to test for memory leak
 
 int main()
 {
-    doublyLinkedList<int> list1;
+    system("clear");
 
-    std::cout << "Part 1 (Insert Node, Delete Node, Print, Reverse Print):" << "\n\n";
+    std::cout << "~INTEGERS~" << std::endl;
+
+    std::cout << "Part 1 (Insert Node, Print):"
+              << "\n\n";
+
+    doublyLinkedList<int> list1;
     list1.initializeList();
     list1.insert(88);
     list1.insert(78);
@@ -32,22 +37,50 @@ int main()
     list1.insert(999);
     list1.insert(60);
     list1.print();
+
+    std::cout << "Part 2 (Copy Constructor, Overloaded Assignment):"
+              << "\n\n";
+
+    doublyLinkedList<int> list3(list1);
+    list3.print();
+
+    doublyLinkedList<int> list2;
+    list2 = list1;
+    list2.print();
+
+    std::cout << "Part 3 (Reverse Linked List):"
+              << "\n\n";
+
+    doublyLinkedList<int> list4(list1);
+    list4.reverseList();
+    list4.print();
     
-    std::cout << "Removing 3rd node..." << "\n\n";
+
+    std::cout << "Part 4 (Delete 3rd Node, Delete Exceptions):"
+              << "\n\n";
+    doublyLinkedList<int> empty;
+
     list1.deleteNode(62);
+    list2.deleteNode(62);
+    //list4.deleteNode(143);
+
+    //Exception Testing
+    list2.deleteNode(1000);
+    empty.deleteNode(1);
+
     list1.print();
-    list1.insertMiddle(55);
-    //list1.reverseList();
+    list2.print();
+    //list4.print();
+
+    std::cout << "Part 5 (Insert in Middle of List):"
+              << "\n\n";
+    list1.insertMiddle(1);
+    list2.insertMiddle(1);
+    //list4.insertMiddle(1);
+
     list1.print();
-
-    // doublyLinkedList<int> list2;
-    // list2 = list1;
-    // list2.print();
-
-    // //test copy constructor
-    // doublyLinkedList<int> list3(list1);
-    // list3.print();
-
+    list2.print();
+    //list4.print();
 
     return 0;
 }
