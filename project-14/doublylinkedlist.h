@@ -232,7 +232,7 @@ void doublyLinkedList<Type>::print() const
         cout << current->info << "  ";
         current = current->next;
     }
-    std::cout << std::endl;
+    std::cout << "\n\n";
 }
 
 template <class Type>
@@ -254,24 +254,23 @@ template <class Type>
 void doublyLinkedList<Type>::reverseList() const
 {
     node<Type> *left = first;
-    node<Type> *right = first;
-
-    while (right->next != nullptr)
-    {
-        right = right->next;
-    }
+    node<Type> *right = last;
 
     while (left != right && left->back != right)
     {
+        // Swap data of left and right pointer
         swap(left->info, right->info);
+
+        // Advance left pointer
         left = left->next;
+
+        // Advance right pointer
         right = right->back;
     }
 }
 
 template <class Type>
-bool doublyLinkedList<Type>::
-    search(const Type &searchItem) const
+bool doublyLinkedList<Type>::search(const Type &searchItem) const
 {
     bool found = false;
     node<Type> *current;
@@ -394,57 +393,71 @@ void doublyLinkedList<Type>::deleteNode(const Type &deleteItem)
     node<Type> *trailCurrent;
     bool found;
 
-    if (first == nullptr)
+    try
     {
-        std::cout << "Cannot delete from an empty list."
-                  << std::endl;
-    }
-    else
-    {
-        if (first->info == deleteItem)
+        if (first == nullptr)
         {
-            current = first;
-            first = first->next;
-            count--;
-            if (first == nullptr)
-            {
-                last = nullptr;
-            }
-
-            delete current;
+            throw count;
         }
         else
         {
-            found = false;
-            trailCurrent = first;
-            current = first->next;
-
-            while (current != nullptr && !found)
+            if (first->info == deleteItem)
             {
-                if (current->info != deleteItem)
-                {
-                    trailCurrent = current;
-                    current = current->next;
-                }
-                else
-                {
-                    found = true;
-                }
-            }
-            if (found)
-            {
-                trailCurrent->next = current->next;
+                current = first;
+                first = first->next;
                 count--;
-                if (last == current)
+                if (first == nullptr)
                 {
-                    last = trailCurrent;
+                    last = nullptr;
                 }
+
                 delete current;
             }
             else
-                std::cout << "The item to be deleted is not in "
-                          << "the list." << std::endl;
+            {
+                found = false;
+                trailCurrent = first;
+                current = first->next;
+
+                while (current != nullptr && !found)
+                {
+                    if (current->info != deleteItem)
+                    {
+                        trailCurrent = current;
+                        current = current->next;
+                    }
+                    else
+                    {
+                        found = true;
+                    }
+                }
+                try
+                {
+                    if (found)
+                    {
+                        trailCurrent->next = current->next;
+                        count--;
+                        if (last == current)
+                        {
+                            last = trailCurrent;
+                        }
+                        delete current;
+                    }
+                    else
+                    {
+                        throw found;
+                    }
+                }
+                catch (...)
+                {
+                    std::cout << "EXCEPTION: Cannot remove nonexistent item from list. Size is currently: " << std::endl;
+                }
+            }
         }
+    }
+    catch (int exceptEmpty)
+    {
+        std::cout << "EXCEPTION: Cannot remove from list. Size is currently: " << exceptEmpty << std::endl;
     }
 }
 
