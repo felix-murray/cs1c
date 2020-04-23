@@ -46,15 +46,19 @@ int main()
 
     doublyLinkedList<int> list2;
     list2 = list1;
+
+    list2.print();
+    list2.reverseList();
     list2.print();
 
     std::cout << "Part 3 (Reverse Linked List):"
               << "\n\n";
 
-    doublyLinkedList<int> list4(list1);
+    doublyLinkedList<int> list4;
+    list4 = list1;
+
     list4.reverseList();
     list4.print();
-    
 
     std::cout << "Part 4 (Delete 3rd Node, Delete Exceptions):"
               << "\n\n";
@@ -62,25 +66,97 @@ int main()
 
     list1.deleteNode(62);
     list2.deleteNode(62);
-    //list4.deleteNode(143);
+    list4.deleteNode(143);
 
     //Exception Testing
     list2.deleteNode(1000);
     empty.deleteNode(1);
 
+    std::cout << std::endl;
+
     list1.print();
     list2.print();
-    //list4.print();
+    list4.print();
 
     std::cout << "Part 5 (Insert in Middle of List):"
               << "\n\n";
     list1.insertMiddle(1);
     list2.insertMiddle(1);
-    //list4.insertMiddle(1);
+    list4.insertMiddle(1);
 
     list1.print();
     list2.print();
-    //list4.print();
+    list4.print();
+
+    list1.destroy();
+    list2.destroy();
+    list3.destroy();
+    list4.destroy();
+
+    std::cout << "~DOUBLES~" << std::endl;
+
+    std::cout << "Part 1 (Insert Node, Print):"
+              << "\n\n";
+
+    doublyLinkedList<double> list1Double;
+    list1Double.initializeList();
+    list1Double.insert(88.4);
+    list1Double.insert(78.7);
+    list1Double.insert(62.6);
+    list1Double.insert(143.5);
+    list1Double.insert(999.3);
+    list1Double.insert(60.5);
+    list1Double.print();
+
+    std::cout << "Part 2 (Copy Constructor, Overloaded Assignment):"
+              << "\n\n";
+
+    doublyLinkedList<double> list3Double(list1Double);
+    list3Double.print();
+
+    doublyLinkedList<double> list2Double;
+    list2Double = list1Double;
+
+    list2Double.print();
+    list2Double.reverseList();
+    list2Double.print();
+
+    std::cout << "Part 3 (Reverse Linked List):"
+              << "\n\n";
+
+    doublyLinkedList<double> list4Double;
+    list4Double = list1Double;
+
+    list4Double.reverseList();
+    list4Double.print();
+
+    std::cout << "Part 4 (Delete 3rd Node, Delete Exceptions):"
+              << "\n\n";
+    doublyLinkedList<double> emptyDouble;
+
+    list1Double.deleteNode(62.6);
+    list2Double.deleteNode(62.6);
+    list4Double.deleteNode(143.5);
+
+    //Exception Testing
+    list2Double.deleteNode(1000);
+    emptyDouble.deleteNode(1);
+
+    std::cout << std::endl;
+
+    list1Double.print();
+    list2Double.print();
+    list4Double.print();
+
+    std::cout << "Part 5 (Insert in Middle of List):"
+              << "\n\n";
+    list1Double.insertMiddle(1.1);
+    list2Double.insertMiddle(1.1);
+    list4Double.insertMiddle(1.1);
+
+    list1Double.print();
+    list2Double.print();
+    list4Double.print();
 
     return 0;
 }
