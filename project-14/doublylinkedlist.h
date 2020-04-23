@@ -53,58 +53,21 @@ private:
 template <class Type>
 const doublyLinkedList<Type> &doublyLinkedList<Type>::operator=(const doublyLinkedList<Type> &otherList)
 {
-    if (this != &otherList)
+    node<Type> *current;
+
+    first = nullptr;
+    last = nullptr;
+
+    //count = otherList.count;
+
+    current = otherList.first;
+
+    while (current != nullptr)
     {
-        node<Type> *newNode;
-        node<Type> *current;
-
-        if (first != nullptr)
-        {
-            node<Type> *temp;
-
-            while (first != nullptr)
-            {
-                temp = first;
-                first = first->next;
-                delete temp;
-            }
-            last = nullptr;
-            count = 0;
-        }
-
-        if (otherList.first == nullptr)
-        {
-            first = nullptr;
-            last = nullptr;
-            count = 0;
-        }
-        else
-        {
-            current = otherList.first;
-            count = otherList.count;
-
-            first = new node<Type>;
-            first->info = current->info;
-            //this might break idk
-            first->next = nullptr;
-
-            last = first;
-
-            current = current->next;
-
-            while (current != nullptr)
-            {
-                newNode = new node<Type>;
-                newNode->info = current->info;
-                newNode->next = nullptr;
-
-                last->next = newNode;
-                last = newNode;
-
-                current = current->next;
-            }
-        }
+        insert(current->info);
+        current = current->next;
     }
+
     return *this;
 }
 
@@ -253,8 +216,26 @@ void doublyLinkedList<Type>::reversePrint() const
 template <class Type>
 void doublyLinkedList<Type>::reverseList() const
 {
+    node<Type> *middle = (node<Type> *)malloc(sizeof(node<Type>));
+    middle = first;
+
+    int mid = (count % 2 == 0) ? (count / 2) : ((count + 1) / 2);
+
+    //Iterate through list till current points to mid position
+    for (int i = 1; i < mid; i++)
+    {
+        middle = middle->next;
+    }
+
     node<Type> *left = first;
     node<Type> *right = last;
+
+    bool isEven = false;
+
+    if (count % 2 == 0)
+    {
+        isEven = true;
+    }
 
     while (left != right && left->back != right)
     {
@@ -266,6 +247,17 @@ void doublyLinkedList<Type>::reverseList() const
 
         // Advance right pointer
         right = right->back;
+    }
+
+    left = left->back;
+    right = right->next;
+
+    if (!isEven)
+    {
+        left->next = middle;
+        middle->next = right;
+        middle->back = left;
+        right->back = middle;
     }
 }
 
